@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>Document</title>
+<style>
+    .banner{
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+        background: url('back1.jpg');
+    }
+    .product{
+        /* background-color: red; */
+        width: 500px;
+        height: 100vh;
+        position: absolute;
+       top: 120px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+        transition: 1s;
+        --left: 0px;
+        display: flex;
+       
+       
+    }
+    .soda {
+    position: absolute;
+    left: 30%;
+    transform: translateX(30%);
+    background: var(--url) var(--left) 0px, url('new.png');
+    background-size: 100% auto;
+    width: 200px;
+    height: 370px;
+    background-blend-mode: multiply;
+    mask-image: url('new.png');
+    mask-size: auto 100%;
+    transition: 0.7s;
+    animation: float 3s ease-in-out infinite; /* Add animation */
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0); /* Start and end position */
+    }
+    50% {
+        transform: translate(0px, 20px); /* Move up */
+    }
+}
+ .product:hover{
+    --left: -1000px;
+    transform: translateX(-50%) translateY(-100px);
+ }
+ img {
+    width: 280px;
+    margin-top: 380px;
+    transform: translateX(550px);
+   
+}
+
+
+ .banner .product:hover .soda:nth-child(2){
+    opacity: 0;
+ }
+ 
+ .banner .product:hover img{
+  display: none; 
+}
+ 
+</style>
+</head>
+<body>
+   <div class="banner">
+    <div class="product">
+        <div class="soda" style="--url : url('new4.png')"></div>
+        <div class="soda" style="--url : url('new5.png')"></div>
+        
+    </div>
+    <img src="rock2.png">
+   </div>
+   
+</body>
+</html>
